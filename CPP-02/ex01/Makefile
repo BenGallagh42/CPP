@@ -1,5 +1,5 @@
 NAME        = fixed
-SRCS        = main.cpp Fixed.hpp Fixed.cpp
+SRCS        = main.cpp Fixed.cpp
 OBJS        = $(SRCS:.cpp=.o)
 DEPS        = $(OBJS:.o=.d)
 

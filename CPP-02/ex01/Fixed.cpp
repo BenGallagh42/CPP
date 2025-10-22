@@ -1,4 +1,5 @@
 #include "Fixed.hpp"
+#include <cmath> // Pour roundf
 
 Fixed::Fixed()
 {
@@ -20,6 +21,18 @@ Fixed& Fixed::operator=(const Fixed& other)
 	return *this; // Retourne l'objet courant pour chainage
 }
 
+Fixed::Fixed(const int value)
+{
+	_value = value << _fractionalBits; // Decale de 8 bits (multiplie par 2^8)
+	std::cout << "Int constructor called" << std::endl;
+}
+
+Fixed::Fixed(const float value)
+{
+	_value = roundf(value * (1 << _fractionalBits)); // Arrondit apres multiplication
+	std::cout << "Float constructor called" << std::endl;
+}
+
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl; // Debug
@@ -34,4 +47,20 @@ int Fixed::getRawBits() const
 void Fixed::setRawBits(int const raw)
 {
 	_value = raw;
+}
+
+float Fixed::toFloat(void) const
+{
+	return static_cast<float>(_value) / (1 << _fractionalBits); // Divise par 2^8
+}
+
+int Fixed::toInt(void) const
+{
+	return _value >> _fractionalBits; // Decale de 8 bits a droite
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
+{
+	os << fixed.toFloat(); // Convert en Float
+	return os;
 }

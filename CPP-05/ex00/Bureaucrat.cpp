@@ -11,7 +11,6 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name)
 {
     std::cout << "Bureaucrat constructor with values called" << std::endl;
     
-    // Validate grade range before assignment
     if (grade < 1)
         throw GradeTooHighException();
     if (grade > 150)
@@ -31,8 +30,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other)
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
     std::cout << "Bureaucrat assignment operator called" << std::endl;
-    if (this != &other) {
-        // Cannot assign _name because it's const
+    if (this != &other)
+	{
         _grade = other._grade;
     }
     return *this;
@@ -72,13 +71,13 @@ void Bureaucrat::decrementGrade()
     _grade++;
 }
 
-// Exception: what() method returns error message
+// Grade Too high exception
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
     return "Grade is too high! (minimum is 1)";
 }
 
-// Exception: what() method returns error message
+// Grade Too low exception
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "Grade is too low! (maximum is 150)";

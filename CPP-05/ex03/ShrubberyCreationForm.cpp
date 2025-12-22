@@ -45,11 +45,11 @@ const std::string& ShrubberyCreationForm::getTarget() const
     return _target;
 }
 
-// Implementation of executeAction - creates file with ASCII trees
+// Creates file with ASCII trees
 void ShrubberyCreationForm::executeAction() const
 {
     std::string filename = _target + "_shrubbery";
-    std::ofstream file(filename.c_str());  // c_str() for C++98 compatibility
+    std::ofstream file(filename.c_str());
     
     if (!file.is_open())
     {

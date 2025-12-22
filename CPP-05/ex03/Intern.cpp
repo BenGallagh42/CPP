@@ -53,22 +53,22 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target) 
     // Get form index
     int formIndex = getFormIndex(formName);
     
-    // Array of form creation functions (function pointer approach avoided for clarity)
+    // Array of form creation functions
     AForm* form = NULL;
     
     // Create appropriate form based on index
     switch (formIndex)
     {
-        case 0:  // shrubbery creation
+        case 0:
             form = new ShrubberyCreationForm(target);
             break;
-        case 1:  // robotomy request
+        case 1:
             form = new RobotomyRequestForm(target);
             break;
-        case 2:  // presidential pardon
+        case 2:
             form = new PresidentialPardonForm(target);
             break;
-        default:  // unknown form
+        default:
             throw UnknownFormException();
     }
     

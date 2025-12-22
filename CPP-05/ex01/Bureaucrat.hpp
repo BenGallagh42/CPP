@@ -5,7 +5,7 @@
 #include <string>
 #include <exception>
 
-// Forward declaration to avoid circular dependency
+// NEW: Forward declaration to avoid circular dependency
 class Form;
 
 class Bureaucrat {

@@ -103,12 +103,13 @@ void Bureaucrat::executeForm(const AForm& form) const
     }
 }
 
-// Exceptions
+// Grade Too high exception
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
     return "Grade is too high! (minimum is 1)";
 }
 
+// Grade Too low exception
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "Grade is too low! (maximum is 150)";

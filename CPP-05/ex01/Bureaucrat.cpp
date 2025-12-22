@@ -33,7 +33,6 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
     std::cout << "Bureaucrat assignment operator called" << std::endl;
     if (this != &other) {
-        // Cannot assign _name because it's const
         _grade = other._grade;
     }
     return *this;
@@ -60,7 +59,7 @@ int Bureaucrat::getGrade() const
 // Increment grade (decrease number: 3 -> 2)
 void Bureaucrat::incrementGrade()
 {
-    if (_grade - 1 < 1)  // Check if new grade would be too high
+    if (_grade - 1 < 1)
         throw GradeTooHighException();
     _grade--;
 }
@@ -68,7 +67,7 @@ void Bureaucrat::incrementGrade()
 // Decrement grade (increase number: 3 -> 4)
 void Bureaucrat::decrementGrade()
 {
-    if (_grade + 1 > 150)  // Check if new grade would be too low
+    if (_grade + 1 > 150)
         throw GradeTooLowException();
     _grade++;
 }
@@ -90,13 +89,13 @@ void Bureaucrat::signForm(Form& form) const
     }
 }
 
-// Exception: what() method returns error message
+// Grade Too high exception
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
     return "Grade is too high! (minimum is 1)";
 }
 
-// Exception: what() method returns error message
+// Grade Too low exception
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "Grade is too low! (maximum is 150)";

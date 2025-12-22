@@ -43,9 +43,11 @@ int main()
     try
     {
         Bureaucrat bob("Bob", 30);
+		std::cout << bob << std::endl;
+
         Form form2("Contract", 50, 25);
-        
         std::cout << form2 << std::endl;
+
         bob.signForm(form2);  // Bob's grade (30) is high enough (< 50)
         std::cout << form2 << std::endl;
     }
@@ -59,9 +61,11 @@ int main()
     try
     {
         Bureaucrat intern("Intern", 100);
+		std::cout << intern << std::endl;
+
         Form importantForm("Important Contract", 50, 25);
-        
         std::cout << importantForm << std::endl;
+
         intern.signForm(importantForm);  // Intern's grade (100) is too low (> 50)
         std::cout << importantForm << std::endl;
     }
@@ -75,11 +79,14 @@ int main()
     try
     {
         Form permit("Building Permit", 75, 50);
+		std::cout << permit << std::endl;
+
         Bureaucrat alice("Alice", 100);
+		std::cout << alice <<std::endl;
+
         Bureaucrat charlie("Charlie", 50);
-        
-        std::cout << permit << std::endl;
-        
+		std::cout << charlie << std::endl;
+                
         alice.signForm(permit);    // Will fail
         charlie.signForm(permit);  // Will succeed
         

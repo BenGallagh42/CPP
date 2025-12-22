@@ -48,7 +48,7 @@ int main()
         alice.incrementGrade();
         std::cout << "After increment: " << alice << std::endl;
         
-        alice.incrementGrade();  // This will throw exception (grade 0)
+        alice.incrementGrade();
         std::cout << "This won't print" << std::endl;
     }
     catch (std::exception& e)
@@ -66,7 +66,7 @@ int main()
         charlie.decrementGrade();
         std::cout << "After decrement: " << charlie << std::endl;
         
-        charlie.decrementGrade();  // This will throw exception (grade 151)
+        charlie.decrementGrade();
         std::cout << "This won't print" << std::endl;
     }
     catch (std::exception& e)

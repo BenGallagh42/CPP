@@ -18,7 +18,7 @@ public:
     Bureaucrat& operator=(const Bureaucrat& other);
     ~Bureaucrat();
 
-    // Getters - const methods because they don't modify the object
+    // Getters
     const std::string& getName() const;
     int getGrade() const;
 

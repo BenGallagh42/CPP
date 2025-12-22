@@ -45,7 +45,7 @@ const std::string& PresidentialPardonForm::getTarget() const
     return _target;
 }
 
-// Implementation of executeAction - presidential pardon message
+// Presidential pardon message
 void PresidentialPardonForm::executeAction() const
 {
     std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;

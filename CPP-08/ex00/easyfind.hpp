@@ -8,6 +8,7 @@
 template <typename T>
 typename T::iterator easyfind(T& container, int value)
 {
+	// typename so the compiler knows that 'it' is type, not a static variable
     typename T::iterator it;
 
     it = std::find(container.begin(), container.end(), value);
@@ -17,7 +18,7 @@ typename T::iterator easyfind(T& container, int value)
         throw std::exception();
     }
     
-    return it;
+    return (it);
 }
 
 #endif

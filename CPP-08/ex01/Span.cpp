@@ -41,11 +41,15 @@ int Span::shortestSpan() const
         throw std::exception();
     }
 
+	// Create a copy of _numbers as this is a const function
     std::vector<int> sorted = _numbers;
+	// Sort to minimize the number of span to calcul
     std::sort(sorted.begin(), sorted.end());
 
+	// We start with the maximum value, then look for a smaller span
     int minSpan = std::numeric_limits<int>::max();
 
+	// size_t because .size() returns a size_t
     for (size_t i = 0; i < sorted.size() - 1; i++)
     {
         int span = sorted[i + 1] - sorted[i];
@@ -66,6 +70,7 @@ int Span::longestSpan() const
         throw std::exception();
     }
 
+	// const_iterator as this is a const function
     std::vector<int>::const_iterator min = std::min_element(_numbers.begin(), _numbers.end());
     std::vector<int>::const_iterator max = std::max_element(_numbers.begin(), _numbers.end());
 

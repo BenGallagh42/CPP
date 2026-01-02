@@ -47,15 +47,15 @@ int main()
         std::list<int> lst;
         
         // Fill list with some numbers
-        lst.push_back(100);
-        lst.push_back(200);
-        lst.push_back(300);
-        lst.push_back(400);
+        lst.push_back(5);
+        lst.push_back(10);
+        lst.push_back(15);
+        lst.push_back(20);
         
         try
         {
-            // Search for 200 (should be found)
-            std::list<int>::iterator it = easyfind(lst, 200);
+            // Search for 15 (should be found)
+            std::list<int>::iterator it = easyfind(lst, 15);
             std::cout << "Found: " << *it << std::endl;
         }
         catch (std::exception& e)
@@ -65,8 +65,8 @@ int main()
         
         try
         {
-            // Search for 999 (should NOT be found)
-            std::list<int>::iterator it = easyfind(lst, 999);
+            // Search for 42 (should NOT be found)
+            std::list<int>::iterator it = easyfind(lst, 42);
             std::cout << "Found: " << *it << std::endl;
         }
         catch (std::exception& e)
@@ -81,15 +81,26 @@ int main()
         std::deque<int> deq;
         
         // Fill deque with some numbers
-        deq.push_back(7);
-        deq.push_back(14);
-        deq.push_back(21);
-        deq.push_back(28);
+        deq.push_back(5);
+        deq.push_back(10);
+        deq.push_back(15);
+        deq.push_back(20);
         
         try
         {
-            // Search for 21 (should be found)
-            std::deque<int>::iterator it = easyfind(deq, 21);
+            // Search for 20 (should be found)
+            std::deque<int>::iterator it = easyfind(deq, 20);
+            std::cout << "Found: " << *it << std::endl;
+        }
+        catch (std::exception& e)
+        {
+            std::cout << "Value not found" << std::endl;
+        }
+
+		try
+        {
+            // Search for 42 (should be found)
+            std::deque<int>::iterator it = easyfind(deq, 42);
             std::cout << "Found: " << *it << std::endl;
         }
         catch (std::exception& e)
@@ -106,7 +117,7 @@ int main()
         try
         {
             // Search in empty container (should NOT be found)
-            std::vector<int>::iterator it = easyfind(empty_vec, 5);
+            std::vector<int>::iterator it = easyfind(empty_vec, 42);
             std::cout << "Found: " << *it << std::endl;
         }
         catch (std::exception& e)

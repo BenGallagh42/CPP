@@ -99,31 +99,5 @@ int main()
         std::cout << std::endl;
     }
 
-    // Test copy
-    {
-        std::cout << "\n- Test copy -" << std::endl;
-        
-        MutantStack<int> mstack1;
-        mstack1.push(10);
-        mstack1.push(20);
-        mstack1.push(30);
-        
-        MutantStack<int> mstack2(mstack1);
-        
-        std::cout << "Original: ";
-        for (MutantStack<int>::iterator it = mstack1.begin(); it != mstack1.end(); ++it)
-        {
-            std::cout << *it << " ";
-        }
-        std::cout << std::endl;
-        
-        std::cout << "Copy: ";
-        for (MutantStack<int>::iterator it = mstack2.begin(); it != mstack2.end(); ++it)
-        {
-            std::cout << *it << " ";
-        }
-        std::cout << std::endl;
-    }
-
     return (0);
 }

@@ -14,8 +14,8 @@ int main()
         sp.addNumber(9);
         sp.addNumber(11);
         
-        std::cout << sp.shortestSpan() << std::endl;
-        std::cout << sp.longestSpan() << std::endl;
+        std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << sp.longestSpan() << std::endl;
     }
 
     // Test with exception (too many numbers)
@@ -33,7 +33,7 @@ int main()
         }
         catch (std::exception& e)
         {
-            std::cout << "Cannot add more numbers (expected)" << std::endl;
+            std::cout << "Cannot add more numbers" << std::endl;
         }
     }
 
@@ -50,7 +50,7 @@ int main()
         }
         catch (std::exception& e)
         {
-            std::cout << "Not enough numbers for span (expected)" << std::endl;
+            std::cout << "Not enough numbers for span" << std::endl;
         }
     }
 
@@ -60,11 +60,12 @@ int main()
         Span sp = Span(10000);
         
         std::vector<int> numbers;
+		// Fill the vector with pair numbers
         for (int i = 0; i < 10000; i++)
         {
             numbers.push_back(i * 2);
         }
-        
+        // Iterate through the vector and add numbers to the class object
         sp.addRange(numbers.begin(), numbers.end());
         
         std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;

@@ -68,13 +68,13 @@ bool BitcoinExchange::_loadDatabase(const std::string& filename)
 // Checks if date format is YYYY-MM-DD and values are valid
 bool BitcoinExchange::_isValidDate(const std::string& date) const
 {
-    // Check for format: YYYY-MM-DD
+    // Checks format: YYYY-MM-DD
     if (date.length() != 10)
         return (false);
     if (date[4] != '-' || date[7] != '-')
         return (false);
 
-    // Check that numbers are between 0 and 9
+    // Checks that numbers are between 0 and 9
     for (size_t i = 0; i < date.length(); i++)
     {
         if (i == 4 || i == 7)
@@ -105,11 +105,11 @@ bool BitcoinExchange::_isValidValue(const std::string& valueStr, double& value) 
     char* endPtr;
     value = std::strtod(valueStr.c_str(), &endPtr); // Convert string to double
 
-    // Check for invalid characters in the string
+    // Checks for invalid characters in the string
     if (*endPtr != '\0' && *endPtr != ' ' && *endPtr != '\t')
         return (false);
 
-    // Check value makes sense
+    // Checks value makes sense
     if (value < 0)
     {
         std::cerr << "Error: not a positive number." << std::endl;
